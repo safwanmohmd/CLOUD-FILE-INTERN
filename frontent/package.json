@@ -3,12 +3,27 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "main.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dist": "electron-builder",
+
+  "electron": "electron ."
   },
+  "build": {
+  "appId": "com.cloud.management",
+  "files": [
+    "dist/**/*",
+    "main.js",
+    "package.json"
+  ],
+  "win": {
+    "target": "nsis"
+  }
+},
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
     "bootstrap-icons": "^1.13.1",
