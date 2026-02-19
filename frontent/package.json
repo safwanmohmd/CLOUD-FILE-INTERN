@@ -10,26 +10,29 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "dist": "electron-builder",
-
-  "electron": "electron ."
+    "electron": "electron ."
   },
   "build": {
-  "appId": "com.cloud.management",
-  "files": [
-    "dist/**/*",
-    "main.js",
-    "package.json"
-  ],
-  "win": {
-    "target": "nsis"
-  }
-},
+    "appId": "com.cloud.management",
+    "files": [
+      "dist/**/*",
+      "main.js",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis"
+    }
+  },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.11.2",
     "@tailwindcss/vite": "^4.1.18",
+    "axios": "^1.13.5",
     "bootstrap-icons": "^1.13.1",
+    "dotenv": "^17.2.4",
     "react": "^19.2.0",
     "react-bootstrap-icons": "^1.11.6",
     "react-dom": "^19.2.0",
+    "react-redux": "^9.2.0",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {

@@ -2,21 +2,33 @@ import express from 'express'
 import mongoose, { Mongoose } from 'mongoose'
 import dotenv from 'dotenv'
 import fileroutes from "./route/fileRoute.js"
+import cors from 'cors'
+
+import dns from "dns";
+dns.setDefaultResultOrder("ipv4first");
+
+
+
 dotenv.config()
 const app = express()
+const startServer = async () => {
+  try {
+   await mongoose.connect(process.env.mongoUri, {
+  family: 4
+});
+    console.log("Connected to DB")
 
-try {
-    mongoose.connect(process.env.mongoUri).then(
-        console.log("connected to db")
-    ).then(
-        app.listen(process.env.PORT,()=>{
-            console.log(`server started on ${process.env.PORT}`)
-        })
-    )
-} catch (error) {
-    console.log(error.message)
+    app.listen(process.env.PORT, () => {
+      console.log(`Server started on ${process.env.PORT}`)
+    })
+
+  } catch (error) {
+    console.log("DB Connection Error:", error.message)
+  }
 }
 
+startServer()
 
+app.use(cors());
 app.use(express.json())
 app.use("/api",fileroutes)

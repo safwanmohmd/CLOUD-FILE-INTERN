@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const fileSchema = mongoose.Schema({
+    fileName:String,
     fileUrl:String,
     public_id:String,
     userId:String,
