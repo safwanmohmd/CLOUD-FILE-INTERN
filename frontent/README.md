@@ -1,16 +1,45 @@
-# React + Vite
+Frontend Explanation – Photo & Video Upload App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The frontend of this project is built using React and packaged as a
+desktop executable (.exe) application using CEF/Electron.
 
-Currently, two official plugins are available:
+It provides the user interface and communicates with the backend API to
+manage photo and video files.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+------------------------------------------------------------------------
 
-## React Compiler
+Core Responsibilities:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1)  File Upload Users can select files from their system. The
+    selected file is sent to the backend using an API request. Frontend
+    validation ensures:
 
-## Expanding the ESLint configuration
+-   File size limits are enforced
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2)  File Listing The frontend fetches all uploaded files from the
+    backend and displays them in a structured list format.
+
+Each file entry shows: - File name - Uploaded date and time - Action
+buttons (View, Download, Delete)
+
+3)  View Files Users can open supported images and videos in a new
+    window using the file URL provided by the backend.
+
+4)  Download Files The frontend forces file download using fetch and
+    blob handling, ensuring files download instead of navigating to the
+    URL.
+
+5)  Delete Files Users can delete files directly from the interface. The
+    frontend sends a delete request to the backend and refreshes the
+    file list automatically.
+
+6)  Desktop Application The React application is packaged as a
+    standalone executable file. This allows the application to run
+    independently without a browser.
+
+------------------------------------------------------------------------
+
+Summary: The frontend provides a functional desktop interface for
+uploading, viewing, downloading, and deleting media files. It
+communicates with the backend server and ensures proper validation and
+user interaction within a desktop environment.
