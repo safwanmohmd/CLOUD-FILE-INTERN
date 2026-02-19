@@ -23,7 +23,7 @@ const startServer = async () => {
 
 startServer();
 
-const cors = require("cors");
+
 
 app.use(
   cors({
