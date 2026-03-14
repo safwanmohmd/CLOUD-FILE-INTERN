@@ -9,7 +9,7 @@ const App = () => {
 
   const { loading, allFiles } = useSelector((state) => state.files);
 
- const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB
+ const MAX_FILE_SIZE = 50 * 1024 * 1024; 
 
 const handleUpload = async (file) => {
   if (!file) {
@@ -17,7 +17,11 @@ const handleUpload = async (file) => {
     return;
   }
 
-
+ if (!file.type.startsWith("image/") && !file.type.startsWith("video/")) {
+    alert("Only images and videos are allowed");
+    return;
+  }
+  
   if (file.size > MAX_FILE_SIZE) {
     alert("File size must be less than 50MB");
     return;

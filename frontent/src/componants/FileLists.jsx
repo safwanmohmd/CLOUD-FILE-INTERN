@@ -16,7 +16,7 @@ const FileLists = ({ files }) => {
   const filetype = name.slice(name.lastIndexOf("."));
   const isCanView = fileTypes.includes(filetype);
 
-  // 📅 Handle uploaded date
+
   const uploadedDate = files?.uploadedAt || files?.createdAt;
 
   const formattedDate = uploadedDate
